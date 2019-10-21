@@ -1,0 +1,62 @@
+version: "3.7"
+
+services:
+  api:
+    build: "./"
+    entrypoint: /entrypoint.sh
+    command: ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+    networks: 
+      - external
+      - dbnet
+    depends_on:
+      - db
+    env_file: .env
+    links: 
+      - "db:db"
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "0.2"
+          memory: 128M
+      update_config:
+        parallelism: 1
+        delay: 10s
+      restart_policy:
+        condition: on-failure
+    volumes:
+      - ./app/logs:/app/logs
+    ports:
+      - "8000:8000"
+
+  # this service take the db in a private network
+  db:
+    image: postgres:10.10-alpine
+    env_file: .env
+    networks: 
+      - dbnet
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "1"
+          memory: 1000M
+      update_config:
+        parallelism: 1
+        delay: 30s
+      restart_policy:
+        condition: on-failure
+    volumes:
+      #- ./secrets/user_mysql.asc:/secrets/user_mysql.asc
+      #- ./app/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - db_desafio:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+networks:
+  external:
+    driver: bridge
+  dbnet:
+    internal: true
+    driver: bridge
+volumes:
+  db_desafio:

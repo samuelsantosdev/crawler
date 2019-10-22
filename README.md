@@ -13,11 +13,11 @@ e acessar 127.0.0.1:5000
 
 Nesse ambiente serão criados 3 serviços na sequência:
 
-###DB:
+### DB:
 Nesse serviço o banco postgres é inicializado com as credenciais do arquivos .env,
 em uma rede privada
 
-###API:
+### API:
 Uma imagem customizada do docker é gerada e 
 após a criação dessa imagem são executados alguns comandos como:
 ```
@@ -28,7 +28,7 @@ python manage.py test
 ```
 O output desses comandos estarão disponíveis em app/api/logs/
 
-###Front:
+### Front:
 Expõe a aplicação (minha intenção era incluir também o gunicorn aqui)
 
 Por padrão o Django cria o usuário "admin" senha "qwe123",

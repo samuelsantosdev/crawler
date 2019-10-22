@@ -12,5 +12,5 @@ COPY docker/entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh && chown app:infoglobo /entrypoint.sh \
 && pip install -r /app/requirements.txt && rm /app/requirements.txt
 
-#USER app
+USER app
 WORKDIR /app

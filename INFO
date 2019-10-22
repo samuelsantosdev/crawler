@@ -1,0 +1,9 @@
+[INFO] - [2019-10-22 04:19:16,925] - autoesportefeed - http://revistaautoesporte.globo.com/rss/ultimas/feed.xml
+[INFO] - [2019-10-22 04:19:17,162] - autoesportefeed - <Response [200]>
+"GET /feed/ HTTP/1.1" 200 215966
+[INFO] - [2019-10-22 04:19:18,776] - basehttp - "GET /feed/ HTTP/1.1" 200 215966
+[INFO] - [2019-10-22 04:19:25,263] - autoesportefeed - http://revistaautoesporte.globo.com/rss/ultimas/feed.xml
+[INFO] - [2019-10-22 04:19:25,497] - autoesportefeed - <Response [200]>
+"GET /feed/ HTTP/1.1" 200 215966
+[INFO] - [2019-10-22 04:19:27,159] - basehttp - "GET /feed/ HTTP/1.1" 200 215966
+"GET /feed/ HTTP/1.1" 200 215966

@@ -11,6 +11,38 @@ $ docker-compose up -d
 ```
 e acessar 127.0.0.1:5000
 
+Por padrão o django cria o usuário "admin" senha "qwe123",
+para poder ler o feed é necessário gerar um token JWT em
+POST: 127.0.0.1:5000/api/token/
+no body
+```
+{
+    "username" : "admin",
+    "password" : "qwe123"
+}
+```
+
+Após isso solicitar os feeds em
+GET: 127.0.0.1:5000/feed/
+no header
+```
+Content-Type: application/json
+Authorization: Bearer TOKEN_GERADO
+```
+
+Para criar novos usuários
+POST 127.0.0.1:5000/users/
+```
+{
+	"username" : "jose6",
+	"password" : "qwe123qwe123",
+	"email" : "testes@gmail.com",
+	"is_staff" : true,
+	"is_active" : true,
+	"is_superuser" : true
+}
+```
+
 ## Arquitetura
 ```
 * app #diretório com o fonte da api django

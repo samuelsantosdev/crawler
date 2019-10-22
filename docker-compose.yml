@@ -51,7 +51,7 @@ services:
       restart_policy:
         condition: on-failure
     volumes:
-      - ./app/logs:/app/logs
+      - ./app:/app
     ports:
       - "8000:8000"
 

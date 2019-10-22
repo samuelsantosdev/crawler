@@ -11,7 +11,27 @@ $ docker-compose up -d
 ```
 e acessar 127.0.0.1:5000
 
-Por padrão o django cria o usuário "admin" senha "qwe123",
+Nesse ambiente serão criados 3 serviços na sequência:
+
+###DB:
+Nesse serviço o banco postgres é inicializado com as credenciais do arquivos .env,
+em uma rede privada
+
+###API:
+Uma imagem customizada do docker é gerada e 
+após a criação dessa imagem são executados alguns comandos como:
+```
+python manage.py makemigrations
+python manage.py migrate
+python manage.py loaddata fixtures/users.json
+python manage.py test
+```
+O output desses comandos estarão disponíveis em app/api/logs/
+
+###Front:
+Expõe a aplicação (minha intenção era incluir também o gunicorn aqui)
+
+Por padrão o Django cria o usuário "admin" senha "qwe123",
 para poder ler o feed é necessário gerar um token JWT em
 POST: 127.0.0.1:5000/api/token/
 no body

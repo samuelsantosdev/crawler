@@ -17,6 +17,7 @@ class AutoEsporteFeed():
             logging.error("ENV ERROR : {}".format(str(e)))
             raise Exception("value URL_FEED_XML not founded")
 
+
     def __parse_xml(self):
         try:
             tree = xmltodict.parse(self.response_xml.content)
@@ -25,12 +26,15 @@ class AutoEsporteFeed():
             logging.error("PARSER XML ERROR : {}".format(str(e)))
             raise Exception("XML error to parser")
 
+
     def __call_feed(self):
         self.response_xml = requests.get(self.url)
         logging.info(self.response_xml)
 
+
     def __parse_to_serializers(self):
         self.list_items = [ { "item" : self.__parse_content(it) } for it in self.list_items ]
+
 
     def __parse_content(self, it):
         try:
@@ -62,7 +66,8 @@ class AutoEsporteFeed():
 
         except Exception as e:
             logging.error("PARSE CONTENT ITEM {}".format(str(e)))
-            
+
+
     def get_feed(self):
         try:
             
@@ -78,8 +83,3 @@ class AutoEsporteFeed():
         
         except Exception as e:
             logging.error("GET FEED ERROR : {}".format(str(e)))
-        
-                
-
-        
-        

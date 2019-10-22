@@ -117,12 +117,14 @@ celerybeat-schedule
 *.sage.py
 
 # Environments
+.env
 .venv
 env/
 venv/
 ENV/
 env.bak/
 venv.bak/
+env.sh
 
 # Spyder project settings
 .spyderproject
@@ -143,3 +145,7 @@ dmypy.json
 .pyre/
 
 # End of https://www.gitignore.io/api/code,django
+
+.idea/
+
+app/logs/*.log

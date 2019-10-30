@@ -1,4 +1,4 @@
-# Desafio Crawler - Feed Auto Esporte
+# Crawler - Feed Auto Esporte
 
 ## Dependências
 * Docker version 18.09.7
